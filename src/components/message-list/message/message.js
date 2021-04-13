@@ -6,7 +6,7 @@ import styles from "./message.module.css"
 export class Message extends Component {
   render() {
     const {
-      message: { message, author, crearedTs },
+      message: { message, author, createdTs },
     } = this.props
 
     return (
@@ -17,7 +17,7 @@ export class Message extends Component {
       >
         <p>{author}</p>
         <h3>{message}</h3>
-        <p>{format(crearedTs, "HH:mm")}</p>
+        <p>{format(createdTs, "HH:mm:ss")}</p>
       </div>
     )
   }

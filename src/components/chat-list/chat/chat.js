@@ -5,7 +5,6 @@ import {
   withStyles,
 } from "@material-ui/core"
 import { AccountCircle } from "@material-ui/icons"
-import PropTypes from "prop-types"
 import React, { Component } from "react"
 
 import styles from "./chat.module.css"
@@ -21,15 +20,10 @@ const StyledListItem = withStyles(() => ({
   },
 }))(ListItem)
 
-// @TODO* доработать и сделать вывод последнего сообщения
 export class Chat extends Component {
-  static propTypes = {
-    title: PropTypes.string.isRequired,
-    selected: PropTypes.bool.isRequired,
-  }
-
   render() {
-    const { selected, title } = this.props
+    const { selected, chat, lastMessage } = this.props
+    const { title } = chat
 
     return (
       <StyledListItem button={true} selected={selected}>
@@ -38,7 +32,17 @@ export class Chat extends Component {
         </ListItemIcon>
         <div className={styles.description}>
           <ListItemText className={styles.text} primary={title} />
-          <ListItemText className={styles.text} primary="12.30" />
+          {lastMessage ? (
+            <>
+              <ListItemText
+                className={styles.text}
+                primary={`${lastMessage.author}: ${lastMessage.message}`}
+              />
+              <ListItemText className={styles.text} primary="12:30" />
+            </>
+          ) : (
+            <ListItemText className={styles.text} primary="Нет сообщений" />
+          )}
         </div>
       </StyledListItem>
     )
