@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="manifest" href="../manifest/manifest.json" />
+    <title>title</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker
+          .register("/service-worker.js", {
+            scope: ".", // <--- THIS BIT IS REQUIRED
+          })
+          .then(
+            function (registration) {
+              // Registration was successful
+              console.log(
+                "ServiceWorker успешно зарегистрирован со сферой действия: ",
+                registration.scope,
+              )
+            },
+            function (err) {
+              // registration failed :(
+              console.log("ServiceWorker не удалось зарегистрировать: ", err)
+            },
+          )
+          .catch(function (err) {
+            console.log(err)
+          })
+      })
+    } else {
+      console.log("ServiceWorker не поддерживается")
+    }
+  </script>
+</html>
