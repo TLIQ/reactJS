@@ -1,0 +1,6 @@
+export const MESSAGE_SEND = "@messages/send"
+export const MESSAGE_DELETE = "@messages/delete"
+export const MESSAGE_DELETE_BY_KEYS = "@messages/delete by keys"
+export const GET_MESSAGE_ERROR = "@messages/get messages error"
+export const GET_MESSAGE_SUCCESS = "@messages/get messages success"
+export const GET_MESSAGE_PENDING = "@messages/get messages pending"

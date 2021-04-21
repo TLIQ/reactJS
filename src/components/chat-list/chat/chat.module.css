@@ -1,0 +1,16 @@
+.icon,
+.text {
+  color: #fff;
+}
+
+.text span {
+  font-size: 14px;
+}
+
+.description {
+  width: 100%;
+}
+
+.description .text:nth-child(3) {
+  text-align: right;
+}
